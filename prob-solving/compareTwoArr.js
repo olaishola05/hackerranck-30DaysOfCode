@@ -1,27 +1,23 @@
 function compareTriplets(a, b) {
-    const [e, d, c] = a;
-    const [i, j, k] = b;
     let a_score = 0;
     let b_score = 0;
-    let newA = [];
-    let newB = [];
-    if (a[e] > b[i]) {
-        a_score += 1;
+    let result = [];
+
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] > b[i]) {
+            a_score++;
+        } else if (a[i] < b[i]) {
+            b_score++;
+        } else {
+            a_score += 0;
+            b_score += 0;
+        }
     }
 
-    if (b[j] < a[d]) {
-        b_score += 1;
-    }
-
-    if (a[c] === b[k]) {
-        a_score += 0;
-        b_score += 0;
-    }
-
-    let result = [a_score, b_score];
+    result.push(a_score, b_score);
     console.log(result);
     return result;
 }
-const array1 = [1, 5, 8];
-const array2 = [1, 4, 8];
+const array1 = [2, 3, 8, 6];
+const array2 = [1, 4, 8, 3];
 compareTriplets(array1, array2);
